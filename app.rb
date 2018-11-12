@@ -16,7 +16,7 @@ get '/' do
 end
 
 post '/temp' do
-  # FileUtils.rm_rf(Dir['./temp/*'])
+  FileUtils.rm_rf(Dir['./temp/*'])
 
   @filename = params[:file][:filename]
   file = params[:file][:tempfile]
