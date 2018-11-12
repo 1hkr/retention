@@ -4,6 +4,8 @@ require "pry-byebug"
 require "better_errors"
 require 'fileutils'
 require 'csv'
+set :bind, '0.0.0.0'
+
 configure :development do
   use BetterErrors::Middleware
   BetterErrors.application_root = File.expand_path('..', __FILE__)
@@ -14,6 +16,7 @@ get '/' do
 end
 
 post '/temp' do
+  # FileUtils.rm_rf(Dir['./temp/*'])
 
   @filename = params[:file][:filename]
   file = params[:file][:tempfile]
@@ -88,18 +91,6 @@ post '/temp' do
       csv << h.values
     end
   end
-
-  # download file
-  begin
   send_file("./temp/#{new_file_name}", :filename => "#{new_file_name}", :type => 'Application/octet-stream')
-  ensure
-  File.delete("./temp/#{new_file_name}")
-  redirect '/transformed'
-  end
-end
-
-  # delete file
-get '/transformed' do
-  erb :csv
 end
 

@@ -1,0 +1,56 @@
+body {
+  background-color: #f9f8f8;
+}
+
+.inputfile {
+/*  width: 0.1px;
+  height: 0.1px;*/
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 93px;
+    font-weight: 500;
+    color: #333333;
+    background-color: none;
+    display: inline-block;
+    cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    color: #03F18B;
+}
+
+h1 {
+  margin-top: 70px;
+  font-size: 93px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit {
+  border: none;
+  background-color: #f9f8f8;
+  font-size: 93px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.submit:hover {
+  color:#03F18B;
+  border:none;
+}
+
+.submit:focus {
+  border:none;
+  outline: none;
+}
+
+

@@ -1,13 +1,17 @@
 <html>
     <head>
-        <title>Image Upload</title>
+        <title>Weighted average retention curve</title>
     </head>
     <body>
-        <h1>Upload Image</h1>
-
+        <h1>Weighted average retention curve</h1>
+        </br>
         <form action="/temp" method="POST" enctype="multipart/form-data">
-            <input type="file" name="file">
-            <input type="submit" value="Upload image">
+          <div class="form">
+            <input type="file" name="file" id="file" class="inputfile">
+            <label for="file">Chose a file</label>
+            </br>
+            <input type="submit" value="Upload" class="submit">
+          </div>
         </form>
     </body>
 </html>
