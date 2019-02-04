@@ -80,8 +80,11 @@ post '/temp' do
   weighted_average.each do |key, value|
     # setting variables
     week = key
+    count_line = 0
     sum = 0
     product = 0
+    # counting how much cohorts there is in a week
+      array_of_hashes.each {|line| count_line += 1 if line[week] != 0}
     # Filling the two/three firsts columns
     if key == segment_key
       weighted_average[key] = ""
@@ -91,8 +94,10 @@ post '/temp' do
       weighted_average[key] = 100
     # gathering the sum.prod and sum of weights
     else
-      array_of_hashes.each do |line|
-        if line[week] == 0 or sum > 0 and line[week] < (product/sum - (product/sum*0.5))
+      array_of_hashes.each_with_index do |line, index|
+    # do not take last 2 values into account
+        if line[week] == 0 or index >= count_line - 2
+          puts "#{index}" + week
           sum = sum
           product = product
         elsif line[week] != 0
