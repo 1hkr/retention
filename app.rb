@@ -91,7 +91,7 @@ post '/temp' do
     elsif key == start_date_key
       weighted_average[key] = "All time"
     elsif key == cohort_size_key
-      weighted_average[key] = 100
+      weighted_average[key] = 1
     # gathering the sum.prod and sum of weights
     else
       array_of_hashes.each_with_index do |line, index|
@@ -105,7 +105,7 @@ post '/temp' do
           product += line[week]*line[cohort_size_key]
         end
       # computing the weighted average
-      weighted_average[key] = (product.to_f/sum.to_f).round(2)
+      weighted_average[key] = (product.to_f/sum.to_f).round(2)/100
       end
     end
   end
