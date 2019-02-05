@@ -96,7 +96,7 @@ post '/temp' do
     else
       array_of_hashes.each_with_index do |line, index|
     # do not take last 2 values into account
-        if index >= count_line - 2
+        if line[week] == 0 index >= count_line - 2
           puts "#{index}" + week
           sum = sum
           product = product
