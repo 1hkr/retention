@@ -96,11 +96,11 @@ post '/temp' do
     else
       array_of_hashes.each_with_index do |line, index|
     # do not take last 2 values into account
-        if line[week] == 0 or index >= count_line - 2
+        if index >= count_line - 2
           puts "#{index}" + week
           sum = sum
           product = product
-        elsif line[week] != 0
+        else
           sum += line[cohort_size_key]
           product += line[week]*line[cohort_size_key]
         end
