@@ -24,7 +24,7 @@ post '/temp' do
   # parsing the csv
   csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
   csv_data = CSV.read(file)
-  amplitude = csv_data[1][0].include? "Amplitude"
+  amplitude = csv_data[0][0].include? "amplitude"
   if amplitude
     headers = csv_data[5]
     csv_data.shift(6)
